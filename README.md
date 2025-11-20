@@ -1,6 +1,6 @@
 # 🇸🇪 Spara kerning | 🇬🇧 Save kerning
 
-🇸🇪 Ett skript för InDesign som sparar manuell kerning av ett bokstavspar i GREP-format.
+🇸🇪 Ett skript för InDesign som sparar manuell kerning av ett bokstavspar i GREP-format.  
 Bra för risiga typsnitt och speciellt för textning av serier.
 
 🇬🇧 A script for Indesign that saves manual kerning of a letterpair as a GREP-style.  
