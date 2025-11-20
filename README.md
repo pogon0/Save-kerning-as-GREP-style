@@ -1,8 +1,10 @@
-# 🇸🇪 Spara kerning som GREP | 🇬🇧 Save kerning as GREP-style
+# 🇸🇪 Spara kerning | 🇬🇧 Save kerning
 
 🇸🇪 Ett skript för InDesign som sparar manuell kerning av ett bokstavspar i GREP-format.
+Bra för risiga typsnitt och speciellt för textning av serier.
 
-🇬🇧 A script for Indesign that saves manual kerning of a letterpair as a GREP-style.
+🇬🇧 A script for Indesign that saves manual kerning of a letterpair as a GREP-style.  
+Useful for sloppy fonts and especially for lettering comics.
 
 
 <img width="1050" height="740" alt="HomeMadeComics-Hero-SaveKerning" src="https://github.com/user-attachments/assets/9dee20e3-341c-4fa4-967e-15edac6fe6b7" />
