@@ -1,6 +1,6 @@
 # HMC Save kerning – Version 0.3
 
-- Spara Kerning är ett skript för InDesign som skapar ett teckenformat  
+- Spara Kerning är ett skript för InDesign som skapar teckenformat  
   och GREP-format baserat på manuell kerning för två markerade tecken.  
   Bra för risiga typsnitt och speciellt för textning av serier.  
   Testa först om inte Optisk löser problemparen tillräckligt bra.
