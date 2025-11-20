@@ -14,18 +14,20 @@
 
 1. Lägg filen `HMC-save-kerning_0_3.jsx`i din InDesigns skriptmapp:
    `Program → Adobe InDesign → Scripts → Scripts Panel`
-2. Öppna **Scripts-panelen** i InDesign. Skriptet ska nu synas där.
+   1.2. Öppna **Scripts-panelen** i InDesign. Skriptet ska nu synas där.
 
 ## Lägg till ett snabbkommando
 
-1. Gå till **Redigera → Kortkommandon**.
-2. Välj **Skript**.
-3. Leta upp `HMC-save-kerning_0_3.jsx` i listan.
-4. Klicka på **Ny genväg** och välj en tangentkombination som inte används (t.ex. `Cmd+Shift+K` på Mac).
-5. Klicka **OK** för att spara. Nu kan du köra skriptet med snabbkommandot.
+3.1. Gå till **Redigera → Kortkommandon**.
+3.2. Välj **Skript**.
+3.3. Leta upp `HMC-save-kerning_0_3.jsx` i listan.
+3.4. Klicka på **Ny genväg** och välj en tangentkombination som inte används (t.ex. `Cmd+Shift+Option+K`).
+3.5. Klicka **OK** för att spara. Nu kan du köra skriptet med snabbkommandot.
 
 ## Så här använder du skriptet
 
-1. Markera två tecken i texten.
-2. Kör skriptet från Script-panelen (Fönster → Verktyg → Script → Dubbelklicka på skriptet) eller med ditt snabbkommando.
-3. Skriptet sparar kerningen, skapar teckenformat + GREP-format och nollställer den manuella kerningen.
+4.1. Se till att texten har ett styckeformat.  
+4.2. Ställ dig mellan två tecken och korrigera avståndet som du brukar.
+4.3. Markera de två tecknen.
+4.4. Kör skriptet från Script-panelen (Fönster → Verktyg → Script → Dubbelklicka på skriptet) eller med ditt snabbkommando.
+4.5. Skriptet sparar kerningen, skapar teckenformat + GREP-format och nollställer den manuella kerningen.
