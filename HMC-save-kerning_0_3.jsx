@@ -1,18 +1,19 @@
 /*
-+-------------------------------------------------------------+
-| Spara Kerning är ett skript för InDesign som sparar        |
-| manuell kerning som ett GREP-format. Bra för risiga        |
-| typsnitt och speciellt för textning av serier.             |
-|                   VERSION 0.3   Ola Forssblad.             |
-| Save Kerning is an InDesign script that saves manual       |
-| kerning in GREP format. Useful for sloppy fonts and        |
-| especially for lettering comics.                           |
-+-------------------------------------------------------------+
++------------------------------------------------------+
+| Spara Kerning är ett skript för InDesign som sparar  |
+| manuell kerning som ett GREP-format. Bra för risiga  |
+| typsnitt och speciellt för textning av serier.       |
+|  HMC Save kernig    VERSION 0.3   Ola Forssblad.     |
+| Save Kerning is an InDesign script that saves manual |
+| kerning in GREP format. Useful for sloppy fonts and  |
+| especially for lettering comics.                     |
++------------------------------------------------------+
 */
 
 var doc = app.activeDocument;
 var sel = app.selection;
 
+// Kontrollera markeringen.
 if (sel.length !== 1 || !(sel[0] instanceof Text)) {
   alert("Markera exakt två tecken.");
 } else {
@@ -26,6 +27,7 @@ if (sel.length !== 1 || !(sel[0] instanceof Text)) {
   var char2 = text.characters[1];
   var kerningValue = char1.kerningValue;
 
+  // Kontrollera kerningvärdet
   if (isNaN(kerningValue) || kerningValue === null) {
     alert("Kunde inte hämta kerningvärdet. Har du kernat?");
     exit();
@@ -38,6 +40,7 @@ if (sel.length !== 1 || !(sel[0] instanceof Text)) {
     exit();
   }
 
+  // Namn på teckenformat baserat på kerningvärde
   var charStyleName = "Kerning " + kerningValue;
   var charStyle;
 
@@ -55,6 +58,7 @@ if (sel.length !== 1 || !(sel[0] instanceof Text)) {
   var paraStyle = char1.appliedParagraphStyle;
   var grepStyle;
 
+  // Skapa GREP-formatet
   try {
     grepStyle = paraStyle.nestedGrepStyles.add();
     grepStyle.appliedCharacterStyle = charStyle;
@@ -73,10 +77,10 @@ if (sel.length !== 1 || !(sel[0] instanceof Text)) {
     alert("Kunde inte lägga till GREP-format.");
   }
 
-  // Nollställ det manuella kerningen
+  // Nollställ den manuella kerningen
   char1.kerningValue = 0;
 
   alert(
-    "Kerning sparad till teckenformat och kopplats till GREP-format. Manuell kerning nollställd."
+    "Kerning sparad till teckenformat och kopplat till GREP-format. Manuell kerning nollställd."
   );
 }
