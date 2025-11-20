@@ -1,10 +1,12 @@
 /*
 +------------------------------------------------------+
-| Spara Kerning är ett skript för InDesign som sparar  |
-| manuell kerning som ett GREP-format. Bra för risiga  |
+| Spara kerning är ett skript för Indesign som sparar  |
+| manuell kerning som GREP-format. Bra för risiga      |
 | typsnitt och speciellt för textning av serier.       |
-|  HMC Save kernig    VERSION 0.3   Ola Forssblad.     |
-| Save Kerning is an InDesign script that saves manual |
+|                                                      |
+|   HMC Save kerning • VERSION 0.3 • Ola Forssblad.    |
+|                                                      |
+| Save Kerning is an Indesign script that saves manual |
 | kerning in GREP format. Useful for sloppy fonts and  |
 | especially for lettering comics.                     |
 +------------------------------------------------------+
@@ -13,7 +15,7 @@
 var doc = app.activeDocument;
 var sel = app.selection;
 
-// Kontrollera markeringen.
+// Kontrollera markeringen
 if (sel.length !== 1 || !(sel[0] instanceof Text)) {
   alert("Markera exakt två tecken.");
 } else {
