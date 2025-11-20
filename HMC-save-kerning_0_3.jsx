@@ -3,7 +3,7 @@
 | Spara Kerning är ett skript för InDesign som sparar        |
 | manuell kerning som ett GREP-format. Bra för risiga        |
 | typsnitt och speciellt för textning av serier.             |
-|                      Version 0.1   by Ola Forssblad        |
+|                   VERSION 0.3   Ola Forssblad.             |
 | Save Kerning is an InDesign script that saves manual       |
 | kerning in GREP format. Useful for sloppy fonts and        |
 | especially for lettering comics.                           |
@@ -14,11 +14,11 @@ var doc = app.activeDocument;
 var sel = app.selection;
 
 if (sel.length !== 1 || !(sel[0] instanceof Text)) {
-  alert("Markera exakt två tecken för att använda skriptet.");
+  alert("Markera exakt två tecken.");
 } else {
   var text = sel[0];
   if (text.characters.length !== 2) {
-    alert("Markera exakt två tecken för att använda skriptet.");
+    alert("Markera exakt två tecken.");
     exit();
   }
 
@@ -27,9 +27,7 @@ if (sel.length !== 1 || !(sel[0] instanceof Text)) {
   var kerningValue = char1.kerningValue;
 
   if (isNaN(kerningValue) || kerningValue === null) {
-    alert(
-      "Kunde inte hämta kerningvärdet. Se till att ett manuellt kerningvärde är inställt."
-    );
+    alert("Kunde inte hämta kerningvärdet. Har du kernat?");
     exit();
   }
 
@@ -60,15 +58,25 @@ if (sel.length !== 1 || !(sel[0] instanceof Text)) {
   try {
     grepStyle = paraStyle.nestedGrepStyles.add();
     grepStyle.appliedCharacterStyle = charStyle;
-    grepStyle.grepExpression = char1.contents + "(?=" + char2.contents + ")"; // Endast första tecknet i kombinationen
+
+    // Både första och andra tecknet får VERSALER och gemener.
+    var firstChar = char1.contents;
+    var secondChar = char2.contents;
+
+    var grepFirstChar =
+      "[" + firstChar.toLowerCase() + firstChar.toUpperCase() + "]";
+    var grepSecondChar =
+      "[" + secondChar.toLowerCase() + secondChar.toUpperCase() + "]";
+
+    grepStyle.grepExpression = grepFirstChar + "(?=" + grepSecondChar + ")";
   } catch (e) {
     alert("Kunde inte lägga till GREP-format.");
   }
 
-  // Nollställ det manuella kerningvärdet
+  // Nollställ det manuella kerningen
   char1.kerningValue = 0;
 
   alert(
-    "Kerningvärdet har applicerats som teckenformat och kopplats till GREP-formatet i styckeformatet. Det manuella kerningvärdet har nollställts."
+    "Kerning sparad till teckenformat och kopplats till GREP-format. Manuell kerning nollställd."
   );
 }
