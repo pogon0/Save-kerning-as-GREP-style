@@ -27,20 +27,23 @@ if (sel.length !== 1 || !(sel[0] instanceof Text)) {
 
   var char1 = text.characters[0];
   var char2 = text.characters[1];
-  var kerningValue = char1.kerningValue;
 
-  // Kontrollera kerningvärdet
-  if (isNaN(kerningValue) || kerningValue === null) {
-    alert("Kunde inte hämta kerningvärdet. Har du kernat?");
+  // -------------------------------
+  // FELHANTERING: läs kerning med try/catch
+  var kerningValue;
+  try {
+    kerningValue = char1.kerningValue;
+  } catch (e) {
+    alert("De markerade tecknen har ingen manuell kerning.");
     exit();
   }
 
-  var charCombination = char1.contents + char2.contents;
-
-  if (kerningValue === 0) {
-    alert("Kerningvärdet är 0. Skriptet avslutas.");
+  // Extra säkerhet: om kerning är 0 eller ogiltigt
+  if (kerningValue === 0 || kerningValue === null || isNaN(kerningValue)) {
+    alert("De markerade tecknen har ingen manuell kerning.");
     exit();
   }
+  // -------------------------------
 
   // Namn på teckenformat baserat på kerningvärde
   var charStyleName = "Kerning " + kerningValue;
