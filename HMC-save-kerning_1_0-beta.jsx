@@ -4,7 +4,8 @@
 | manuell kerning som GREP-format. Bra för risiga      |
 | typsnitt och speciellt för textning av serier.       |
 |                                                      |
-|   HMC Save kerning • VERSION 0.3 • Ola Forssblad.    |
+|        HMC Save kerning • VERSION 1.0-beta           |
+|        Ola Forssblad • homemadecomics.org            |    
 |                                                      |
 | Save Kerning is an Indesign script that saves manual |
 | kerning in GREP format. Useful for sloppy fonts and  |
